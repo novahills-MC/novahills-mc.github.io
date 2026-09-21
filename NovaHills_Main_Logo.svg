@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 190" role="img" aria-labelledby="title desc">
+  <title id="title">NovaHills City</title>
+  <desc id="desc">NovaHills City mountain and skyline logo</desc>
+  <g fill="none" stroke="#f4e6c5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M150 54 L205 5 L246 38 L276 13 L349 75" stroke-width="9"/>
+    <path d="M150 54 L205 25 L246 56 L276 35 L349 75" stroke="#d9a84e" stroke-width="3"/>
+    <path d="M184 69 V48 M198 69 V37 M212 69 V28 M226 69 V46 M241 69 V19 M256 69 V43 M271 69 V31 M286 69 V51 M301 69 V40 M316 69 V54" stroke-width="7"/>
+    <path d="M169 76 H331" stroke="#d9a84e" stroke-width="3"/>
+  </g>
+  <text x="260" y="123" text-anchor="middle" fill="#f7f4ed" font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="700" letter-spacing="3">NOVAHILLS</text>
+  <path d="M112 143 H190 M330 143 H408" stroke="#d9a84e" stroke-width="3"/>
+  <text x="260" y="151" text-anchor="middle" fill="#f7f4ed" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" letter-spacing="12">CITY</text>
+</svg>

@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NovaHills City | City Event</title>
+<meta content="NovaHills City — City Event." name="description"/>
+<meta content="#ff8c00" name="theme-color"/>
+<link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#0b0b0c;color:#eee;line-height:1.7}
+a{color:inherit;text-decoration:none}
+header{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:50px 20px;background:radial-gradient(circle at 50% 25%,#4b2900 0,#17100a 28%,#0b0b0c 70%);position:relative;overflow:hidden}
+header:after{content:"";position:absolute;inset:auto -10% -25% -10%;height:45%;background:linear-gradient(180deg,transparent,rgba(255,140,0,.08));filter:blur(30px)}
+.hero{max-width:980px;position:relative;z-index:1}
+.logo{width:112px;height:112px;margin:0 auto 25px;border-radius:28px;display:flex;align-items:center;justify-content:center;background:#ff8c00;color:#111;font-size:42px;font-weight:900;box-shadow:0 0 55px rgba(255,140,0,.32)}
+.hero h1{font-size:clamp(44px,8vw,82px);letter-spacing:5px;font-weight:900;color:#ff8c00;margin-bottom:4px}
+.hero h2{font-size:clamp(21px,4vw,31px);font-weight:400;margin-bottom:18px}
+.hero p{max-width:760px;margin:0 auto 30px;color:#c2c2c2;font-size:18px}
+.button{display:inline-block;padding:14px 28px;border-radius:9px;background:#ff8c00;color:#111;font-weight:800;transition:.2s;margin:5px}
+.button:hover{background:#ffa733;transform:translateY(-2px)}
+.button.secondary{background:transparent;color:#ff8c00;border:1px solid #ff8c00}
+nav{position:sticky;top:0;z-index:1000;display:flex;justify-content:center;gap:25px;flex-wrap:wrap;padding:15px 20px;background:rgba(12,12,13,.97);backdrop-filter:blur(10px);border-bottom:1px solid #292929}
+nav a{color:#aaa;font-size:13px;font-weight:800;transition:.2s}nav a:hover{color:#ff8c00}
+section{padding:90px 20px}
+.container{max-width:1180px;margin:0 auto}
+.section-title{color:#ff8c00;font-size:34px;margin-bottom:10px}
+.section-subtitle{color:#999;margin-bottom:30px}
+.text{color:#ccc;font-size:17px;max-width:900px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:35px}
+.card,.server-item,.contact-box,.notice{background:#171719;border:1px solid #2b2b2f;border-radius:14px;padding:26px}
+.card h3{color:#ff8c00;margin-bottom:9px}.card p,.contact-box p{color:#aaa}
+#launcher,#security,#server,#event{background:#101012}
+.launcher-box{background:#18181b;border:1px solid #343438;border-left:4px solid #ff8c00;border-radius:14px;padding:35px}
+.status{display:inline-block;margin-top:24px;padding:8px 15px;border-radius:20px;background:rgba(255,140,0,.12);border:1px solid rgba(255,140,0,.35);color:#ff8c00;font-size:14px;font-weight:bold}
+.server-info{margin-top:30px;display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.server-item span{display:block;color:#888;font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.server-item strong{color:#fff;font-size:17px}.server-address{color:#ff8c00!important}
+.requirements{margin-top:30px;display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.requirement{padding:18px;background:#171719;border:1px solid #292929;border-radius:10px;color:#ccc}
+.requirement:before{content:"✓";color:#ff8c00;font-weight:bold;margin-right:10px}
+.event-hero{padding:45px;border-radius:22px;background:linear-gradient(135deg,#211608,#151517 60%);border:1px solid #4a3218;box-shadow:0 20px 70px rgba(0,0,0,.28);margin-bottom:30px}
+.event-hero .eyebrow{color:#ffad42;font-weight:900;text-transform:uppercase;letter-spacing:2px;font-size:12px}
+.event-hero h2{font-size:clamp(32px,5vw,54px);margin:8px 0 12px;color:#fff}
+.event-hero p{color:#c9c9c9;max-width:900px;font-size:18px}
+.reward-banner{margin:25px 0 45px;padding:28px;border-radius:18px;background:linear-gradient(135deg,#2a1905,#191919);border:1px solid #6b4516}
+.reward-banner h3{font-size:25px;color:#fff;margin-bottom:7px}.reward-banner p{color:#c7c7c7}
+.reward-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.reward-card{padding:20px;background:#111;border:1px solid #333;border-radius:13px}
+.reward-card span,.reward-card small{display:block;color:#999}.reward-card strong{display:block;font-size:30px;color:#ff9d22;margin:3px 0}
+.reward-card.featured{border-color:#ff8c00;background:#1b1207}
+.announcement{max-width:1100px;margin:0 auto}
+.announcement h2{font-size:31px;color:#ff8c00;margin:45px 0 14px;padding-top:10px;border-top:1px solid #252527}
+.announcement h3{font-size:23px;color:#fff;margin:30px 0 10px}
+.announcement h4{font-size:19px;color:#ffad42;margin:25px 0 8px}
+.announcement p{color:#c9c9c9;margin:10px 0}
+.announcement ul,.announcement ol{margin:12px 0 18px 25px;color:#c9c9c9}
+.announcement li{margin:5px 0}
+.announcement strong{color:#fff}
+.announcement hr{border:0;border-top:1px solid #292929;margin:38px 0}
+.table-wrap{overflow-x:auto;margin:20px 0 28px;border:1px solid #303034;border-radius:13px;background:#141416;box-shadow:0 10px 35px rgba(0,0,0,.18)}
+table{width:100%;border-collapse:collapse;min-width:680px}
+th{background:#22170b;color:#ffae3d;text-align:left;font-size:13px;text-transform:uppercase;letter-spacing:.5px;padding:15px;border-bottom:1px solid #4a3317}
+td{padding:14px 15px;border-bottom:1px solid #29292d;color:#c9c9c9;vertical-align:top}
+tr:last-child td{border-bottom:0}tbody tr:hover{background:#1b1b1e}
+.map-gallery{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:25px}
+.map-card{background:#151517;border:1px solid #303034;border-radius:16px;padding:16px;overflow:hidden}
+.map-card img{display:block;width:100%;height:auto;border-radius:10px;background:#0d0d0e}
+.map-card h3{margin:14px 5px 3px;color:#fff}.map-card p{margin:0 5px;color:#999;font-size:14px}
+.event-note{padding:18px 20px;border-left:4px solid #ff8c00;background:#171719;border-radius:8px;color:#cfcfcf;margin:22px 0}
+footer{padding:45px 20px;text-align:center;background:#070708;border-top:1px solid #292929}
+footer h3{color:#ff8c00;margin-bottom:8px}footer p{color:#777;font-size:13px;max-width:850px;margin:7px auto}
+@media(max-width:850px){.cards,.reward-grid,.map-gallery{grid-template-columns:1fr}.server-info,.requirements{grid-template-columns:1fr}nav{gap:14px}section{padding:65px 18px}.event-hero{padding:30px 22px}}
+
+/* ---------- NOVAHILLS COMMAND REFERENCE ---------- */
+.command-hero{padding:45px;border-radius:22px;background:linear-gradient(135deg,#211608,#151517 60%);border:1px solid #4a3218;box-shadow:0 20px 70px rgba(0,0,0,.28);margin-bottom:30px}
+.command-hero .eyebrow{color:#ffad42;font-weight:900;text-transform:uppercase;letter-spacing:2px;font-size:12px}
+.command-hero h2{font-size:clamp(32px,5vw,54px);margin:8px 0 12px;color:#fff}
+.command-hero p{color:#c9c9c9;max-width:900px;font-size:18px}
+.command-groups{display:grid;grid-template-columns:1fr;gap:20px;margin-top:30px}
+.command-group{background:#151517;border:1px solid #303034;border-radius:16px;overflow:hidden;box-shadow:0 10px 35px rgba(0,0,0,.18)}
+.command-group-header{padding:20px 22px;background:linear-gradient(90deg,#22170b,#151517);border-bottom:1px solid #3a2a19}
+.command-group-header h3{color:#ff9d22;font-size:22px;margin:0}
+.command-group-header p{color:#888;margin-top:4px;font-size:13px}
+.command-table-wrap{overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;scrollbar-color:#ff8c00 #090909;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding-bottom:8px}
+/* NovaHills horizontal table scrollbar — black track with NovaHills orange controls */
+.command-table-wrap::-webkit-scrollbar{height:15px}
+.command-table-wrap::-webkit-scrollbar-track{background:#080808;border:1px solid #2c2c2f;border-radius:999px;box-shadow:inset 0 0 0 2px #101012}
+.command-table-wrap::-webkit-scrollbar-thumb{background:linear-gradient(90deg,#d96f00,#ff9a1f,#d96f00);border:3px solid #080808;border-radius:999px;min-width:90px;box-shadow:0 0 0 1px #5a330d,0 0 8px rgba(255,140,0,.22)}
+.command-table-wrap::-webkit-scrollbar-thumb:hover{background:linear-gradient(90deg,#f27d00,#ffb347,#f27d00);box-shadow:0 0 0 1px #8a4b0a,0 0 12px rgba(255,140,0,.38)}
+.command-table-wrap::-webkit-scrollbar-button:single-button{display:block;width:17px;background-color:#090909;background-repeat:no-repeat;background-position:center;background-size:8px 8px}
+.command-table-wrap::-webkit-scrollbar-button:single-button:horizontal:decrement{background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath d='M6 1 2 4l4 3' fill='none' stroke='%23ff8c00' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")}
+.command-table-wrap::-webkit-scrollbar-button:single-button:horizontal:increment{background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath d='M2 1 6 4 2 7' fill='none' stroke='%23ff8c00' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\")}
+.command-table-wrap::-webkit-scrollbar-button:single-button:hover{background-color:#151515;box-shadow:inset 0 0 0 1px #3a2410}
+
+/* Apply the existing NovaHills command scrollbar design to every website table. */
+.table-wrap{
+    scrollbar-width:thin;
+    scrollbar-color:#ff8c00 #090909;
+    scroll-behavior:smooth;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:8px
+}
+.table-wrap::-webkit-scrollbar{height:15px}
+.table-wrap::-webkit-scrollbar-track{background:#080808;border:1px solid #2c2c2f;border-radius:999px;box-shadow:inset 0 0 0 2px #101012}
+.table-wrap::-webkit-scrollbar-thumb{background:linear-gradient(90deg,#d96f00,#ff9a1f,#d96f00);border:3px solid #080808;border-radius:999px;min-width:90px;box-shadow:0 0 0 1px #5a330d,0 0 8px rgba(255,140,0,.22)}
+.table-wrap::-webkit-scrollbar-thumb:hover{background:linear-gradient(90deg,#f27d00,#ffb347,#f27d00);box-shadow:0 0 0 1px #8a4b0a,0 0 12px rgba(255,140,0,.38)}
+.table-wrap::-webkit-scrollbar-button:single-button{display:block;width:17px;background-color:#090909;background-repeat:no-repeat;background-position:center;background-size:8px 8px}
+.table-wrap::-webkit-scrollbar-button:single-button:horizontal:decrement{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath d='M6 1 2 4l4 3' fill='none' stroke='%23ff8c00' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.table-wrap::-webkit-scrollbar-button:single-button:horizontal:increment{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath d='M2 1 6 4 2 7' fill='none' stroke='%23ff8c00' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.table-wrap::-webkit-scrollbar-button:single-button:hover{background-color:#151515;box-shadow:inset 0 0 0 1px #4a2a0b}
+
+.command-table{width:100%;min-width:980px;border-collapse:collapse}
+.command-table th{background:#0f0f10;color:#ffae3d;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.7px;padding:14px 16px;border-bottom:1px solid #3a2a19}
+.command-table td{padding:15px 16px;border-bottom:1px solid #29292d;color:#c9c9c9;vertical-align:top}
+.command-table tr:last-child td{border-bottom:0}
+.command-table tbody tr:hover{background:#1b1b1e}
+.command-table code{display:inline-block;padding:5px 8px;border-radius:7px;background:#0b0b0c;border:1px solid #303034;color:#ffb04a;font-family:Consolas,Monaco,monospace;font-size:12px;white-space:nowrap}
+.command-table .long code{color:#fff}
+.command-table .description{color:#aaa;line-height:1.6}
+.command-notice{margin-top:25px;padding:20px 22px;border-left:4px solid #ff8c00;background:#171719;border-radius:8px;color:#cfcfcf}
+.command-notice strong{color:#fff}
+.command-download{display:flex;align-items:center;justify-content:space-between;gap:22px;margin:22px 0 30px;padding:18px 20px;background:linear-gradient(90deg,#151517,#111113);border:1px solid #343438;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.16)}
+.command-download-copy{display:flex;align-items:center;gap:14px}
+.command-download-icon{width:44px;height:44px;flex:0 0 44px;border-radius:11px;background:#ff8c00;color:#111;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px}
+.command-download-copy strong{display:block;color:#fff;font-size:15px}
+.command-download-copy span{display:block;color:#8f8f92;font-size:12px;margin-top:2px}
+.command-download a{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 17px;border-radius:9px;background:#ff8c00;color:#111;text-decoration:none;font-weight:900;font-size:13px;border:1px solid #ffad42;box-shadow:0 5px 18px rgba(255,140,0,.18);transition:transform .15s ease,background .15s ease,box-shadow .15s ease}
+.command-download a:hover{background:#ff9d22;transform:translateY(-1px);box-shadow:0 7px 22px rgba(255,140,0,.28)}
+@media(max-width:650px){.command-download{align-items:flex-start;flex-direction:column}.command-download a{width:100%}}
+@media(max-width:850px){.command-hero{padding:30px 22px}.command-table{min-width:860px}}
+
+
+/* ---------- NOVAHILLS TABLE DROPDOWNS ---------- */
+/* Approved command-section dropdown: the existing command header is the control. */
+.command-group-header{
+    position:relative;
+    display:block;
+    width:100%;
+    margin:0;
+    padding:20px 58px 20px 22px;
+    background:linear-gradient(90deg,#22170b,#151517);
+    border-bottom:1px solid #3a2a19;
+    box-sizing:border-box;
+    cursor:pointer;
+    text-align:left;
+    transition:background .18s ease,border-color .18s ease;
+}
+.command-group-header:hover{
+    background:linear-gradient(90deg,#2a1b0a,#18181a);
+}
+.command-group-header:focus-visible{
+    outline:2px solid #ff8c00;
+    outline-offset:-2px;
+}
+.command-group-header::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    right:22px;
+    width:9px;
+    height:9px;
+    border-right:2px solid #ff9d22;
+    border-bottom:2px solid #ff9d22;
+    transform:translateY(-65%) rotate(45deg);
+    transition:transform .2s ease,border-color .18s ease;
+}
+.command-group-header[aria-expanded="true"]::after{
+    transform:translateY(-30%) rotate(225deg);
+    border-color:#ffb347;
+}
+.command-group-header h3{
+    margin:0;
+}
+.command-group-header p{
+    margin-top:4px;
+}
+.command-group.is-collapsed .command-group-header{
+    border-bottom-color:transparent;
+    border-radius:16px;
+}
+.command-group.is-collapsed .command-table-wrap{
+    display:none;
+}
+.command-group:not(.is-collapsed) .command-table-wrap{
+    animation:nhTableReveal .16s ease-out;
+}
+
+/* Same single-header treatment for every non-command table. */
+.nh-table-dropdown-header{
+    position:relative;
+    display:block;
+    width:100%;
+    margin:16px 0 0;
+    padding:20px 58px 20px 22px;
+    background:linear-gradient(90deg,#22170b,#151517);
+    border:1px solid #3a2a19;
+    border-radius:16px;
+    box-sizing:border-box;
+    color:#ededed;
+    font:inherit;
+    font-weight:700;
+    text-align:left;
+    cursor:pointer;
+    transition:background .18s ease,border-color .18s ease,border-radius .18s ease;
+}
+.nh-table-dropdown-header:hover{
+    background:linear-gradient(90deg,#2a1b0a,#18181a);
+    border-color:#4a331b;
+}
+.nh-table-dropdown-header:focus-visible{
+    outline:2px solid #ff8c00;
+    outline-offset:2px;
+}
+.nh-table-dropdown-header::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    right:22px;
+    width:9px;
+    height:9px;
+    border-right:2px solid #ff9d22;
+    border-bottom:2px solid #ff9d22;
+    transform:translateY(-65%) rotate(45deg);
+    transition:transform .2s ease,border-color .18s ease;
+}
+.nh-table-dropdown-header[aria-expanded="true"]{
+    border-radius:16px 16px 0 0;
+    border-bottom-color:#202023;
+}
+.nh-table-dropdown-header[aria-expanded="true"]::after{
+    transform:translateY(-30%) rotate(225deg);
+    border-color:#ffb347;
+}
+.nh-table-dropdown-content{
+    margin-top:0;
+    padding:8px 10px 10px;
+    border:1px solid #3a2a19;
+    border-top:0;
+    border-radius:0 0 16px 16px;
+    background:#0d0d0f;
+    animation:nhTableReveal .16s ease-out;
+}
+.nh-table-dropdown-content.is-closed{
+    display:none;
+}
+@keyframes nhTableReveal{
+    from{opacity:0}
+    to{opacity:1}
+}
+@media(max-width:700px){
+    .nh-table-dropdown-header{
+        padding-right:52px;
+    }
+    .nh-table-dropdown-header::after{
+        right:19px;
+    }
+}
+
+
+/* ---------- NOVAHILLS VISION PAGE ADDITION ---------- */
+.vision-section{position:relative;overflow:hidden;background:#09090a;padding:115px 20px}
+.vision-section:before{content:"";position:absolute;inset:-30% -10% auto;height:80%;background:radial-gradient(circle at 18% 30%,rgba(255,140,0,.17),transparent 34%),radial-gradient(circle at 82% 18%,rgba(255,179,71,.08),transparent 28%);pointer-events:none}
+.vision-section:after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,#ff8c00,transparent);opacity:.65}
+.vision-wrap{position:relative;z-index:1;max-width:1180px;margin:0 auto}
+.vision-kicker{display:inline-flex;align-items:center;gap:10px;color:#ffad42;font-size:12px;font-weight:900;letter-spacing:2.8px;text-transform:uppercase;margin-bottom:16px}
+.vision-kicker:before{content:"";width:30px;height:2px;background:#ff8c00;box-shadow:0 0 12px rgba(255,140,0,.55)}
+.vision-title{font-size:clamp(42px,7vw,78px);line-height:1.02;letter-spacing:-2px;color:#fff;max-width:1000px;margin-bottom:24px}
+.vision-title span{color:#ff8c00}
+.vision-lead{font-size:clamp(19px,2.2vw,25px);line-height:1.55;color:#d1d1d1;max-width:930px;margin-bottom:55px}
+.vision-lead strong{color:#fff}
+.vision-manifesto{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;margin-bottom:65px}
+.vision-statement{padding:38px;border:1px solid #3b2a18;border-radius:24px;background:linear-gradient(145deg,rgba(42,25,5,.92),rgba(18,18,20,.96));box-shadow:0 25px 80px rgba(0,0,0,.3)}
+.vision-statement h3{font-size:30px;color:#fff;margin-bottom:12px}
+.vision-statement p{color:#bdbdbd;font-size:17px}
+.vision-quote{display:flex;flex-direction:column;justify-content:center;padding:38px;border-radius:24px;background:#111114;border:1px solid #2f2f33;position:relative;overflow:hidden}
+.vision-quote:before{content:"“";position:absolute;right:18px;top:-35px;font-size:180px;line-height:1;color:#ff8c00;opacity:.08;font-family:Georgia,serif}
+.vision-quote strong{font-size:25px;color:#ff9d22;line-height:1.25;position:relative}
+.vision-quote span{color:#888;margin-top:15px;position:relative}
+.vision-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.vision-pillar{padding:28px;background:rgba(20,20,23,.94);border:1px solid #2e2e32;border-radius:18px;min-height:205px;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.vision-pillar:hover{transform:translateY(-4px);border-color:#5a3b18;box-shadow:0 18px 45px rgba(0,0,0,.24)}
+.vision-pillar .vision-icon{font-size:27px;margin-bottom:13px;filter:drop-shadow(0 0 10px rgba(255,140,0,.18))}
+.vision-pillar h3{color:#fff;font-size:20px;margin-bottom:8px}
+.vision-pillar p{color:#999;font-size:14px;line-height:1.7}
+.vision-chapter{margin-top:75px}
+.vision-chapter-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:22px}
+.vision-chapter-head .num{color:#ff8c00;font-weight:900;letter-spacing:2px;font-size:12px;text-transform:uppercase}
+.vision-chapter-head h3{font-size:34px;color:#fff;margin-top:4px}
+.vision-chapter-head p{max-width:580px;color:#888;font-size:14px}
+.vision-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.vision-flow-card{position:relative;padding:24px 20px;background:#111114;border:1px solid #2c2c30;border-radius:16px}
+.vision-flow-card .flow-number{color:#ff9d22;font-weight:900;font-size:12px;letter-spacing:1.5px}
+.vision-flow-card h4{color:#fff;margin:8px 0 7px;font-size:17px}
+.vision-flow-card p{color:#8f8f92;font-size:13px;line-height:1.65}
+.vision-flow-card:not(:last-child):after{content:"→";position:absolute;right:-11px;top:50%;transform:translateY(-50%);color:#ff8c00;font-size:20px;z-index:2}
+.vision-economy{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.vision-list-card{padding:30px;border-radius:18px;background:#111114;border:1px solid #2d2d31}
+.vision-list-card h4{color:#ff9d22;font-size:19px;margin-bottom:12px}
+.vision-list-card ul{list-style:none;margin:0;padding:0}
+.vision-list-card li{color:#a9a9ad;padding:8px 0;border-bottom:1px solid #222225;font-size:14px}
+.vision-list-card li:last-child{border-bottom:0}
+.vision-list-card li:before{content:"◆";color:#ff8c00;font-size:8px;margin-right:10px;vertical-align:2px}
+.vision-timeline{position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.vision-timeline:before{content:"";position:absolute;left:7%;right:7%;top:20px;height:1px;background:linear-gradient(90deg,#5a3410,#ff8c00,#5a3410);opacity:.45}
+.vision-stage{position:relative;padding-top:48px;text-align:center}
+.vision-stage .dot{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;background:#ff8c00;box-shadow:0 0 0 5px #17110a,0 0 18px rgba(255,140,0,.45)}
+.vision-stage strong{display:block;color:#fff;font-size:16px}
+.vision-stage span{display:block;color:#888;font-size:12px;line-height:1.55;margin-top:5px}
+.vision-simulation{padding:42px;border-radius:24px;background:linear-gradient(135deg,#17110a,#111114 58%,#0e0e10);border:1px solid #4a3218;box-shadow:0 20px 70px rgba(0,0,0,.28);position:relative;overflow:hidden}
+.vision-simulation:after{content:"SIMULATION";position:absolute;right:-20px;bottom:-42px;font-size:100px;font-weight:900;letter-spacing:8px;color:#ff8c00;opacity:.035;pointer-events:none}
+.vision-simulation h3{font-size:34px;color:#fff;margin-bottom:12px}
+.vision-simulation>p{color:#bdbdbd;max-width:900px;font-size:16px}
+.vision-simulation-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}
+.vision-sim-item{padding:20px;background:rgba(10,10,12,.62);border:1px solid #2e2a25;border-radius:14px}
+.vision-sim-item strong{display:block;color:#fff;margin-bottom:5px}.vision-sim-item span{color:#888;font-size:13px;line-height:1.55}
+.vision-platform{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.vision-platform-card{padding:32px;border-radius:20px;border:1px solid #2e2e32;background:#111114}
+.vision-platform-card.featured{background:linear-gradient(145deg,#211608,#111114 68%);border-color:#4a3218}
+.vision-platform-card h4{font-size:24px;color:#fff;margin-bottom:10px}.vision-platform-card h4 span{color:#ff8c00}
+.vision-platform-card p{color:#999;font-size:14px;line-height:1.7}
+.vision-platform-card ul{margin:17px 0 0 19px;color:#aaa;font-size:13px}.vision-platform-card li{margin:5px 0}
+.vision-final{margin-top:75px;padding:60px 35px;text-align:center;border-radius:28px;background:radial-gradient(circle at 50% 0,#3a2100 0,#17110a 35%,#101012 78%);border:1px solid #4a3218;box-shadow:0 30px 100px rgba(0,0,0,.35)}
+.vision-final .small{color:#ffad42;font-weight:900;text-transform:uppercase;letter-spacing:3px;font-size:11px}
+.vision-final h3{font-size:clamp(34px,5vw,58px);line-height:1.05;color:#fff;margin:13px auto 18px;max-width:850px}
+.vision-final h3 span{color:#ff8c00}
+.vision-final p{color:#aaa;max-width:780px;margin:0 auto;font-size:16px}
+@media(max-width:900px){.vision-manifesto,.vision-platform{grid-template-columns:1fr}.vision-pillars{grid-template-columns:repeat(2,1fr)}.vision-flow{grid-template-columns:repeat(2,1fr)}.vision-flow-card:not(:last-child):after{display:none}.vision-timeline{grid-template-columns:1fr}.vision-timeline:before{left:50%;right:auto;top:10px;bottom:10px;width:1px;height:auto}.vision-stage{padding:0 0 0 45px;text-align:left;min-height:70px}.vision-stage .dot{left:0;top:3px;transform:none}.vision-simulation-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.vision-pillars,.vision-flow{grid-template-columns:1fr}.vision-section{padding:80px 18px}.vision-title{letter-spacing:-1px}.vision-statement,.vision-quote,.vision-simulation{padding:28px 22px}.vision-chapter-head{display:block}.vision-chapter-head p{margin-top:10px}}
+
+
+
+/* ---------- NOVAHILLS MULTI-PAGE NAVIGATION ---------- */
+body{padding-top:0}
+.nh-site-nav{position:sticky;top:0;z-index:1000;display:flex;align-items:center;justify-content:center;gap:18px;padding:11px 22px;background:rgba(8,8,9,.97);backdrop-filter:blur(14px);border-bottom:1px solid #2b2b2e;box-shadow:0 8px 30px rgba(0,0,0,.22)}
+.nh-nav-inner{width:min(1440px,100%);display:flex;align-items:center;gap:24px}
+.nh-brand{display:flex;align-items:center;gap:10px;flex:0 0 auto;color:#fff;font-weight:900;letter-spacing:1.8px;font-size:14px}
+.nh-brand-mark{width:34px;height:34px;border-radius:9px;background:#ff8c00;color:#111;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;box-shadow:0 0 22px rgba(255,140,0,.2)}
+.nh-main-logo{display:block;width:190px;height:auto;max-height:58px;object-fit:contain}
+.nh-nav-links{display:flex;align-items:center;justify-content:flex-end;gap:5px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none}
+.nh-nav-links::-webkit-scrollbar{display:none}
+.nh-nav-links a{white-space:nowrap;padding:9px 11px;border-radius:8px;color:#9c9c9f;font-size:12px;font-weight:900;letter-spacing:.2px;transition:color .18s ease,background .18s ease,transform .18s ease}
+.nh-nav-links a:hover{color:#fff;background:#18181b;transform:translateY(-1px)}
+.nh-nav-links a.active{color:#ffad42;background:rgba(255,140,0,.10);box-shadow:inset 0 0 0 1px rgba(255,140,0,.18)}
+.nh-reward-banner{position:relative;z-index:999;display:flex;align-items:center;justify-content:center;gap:13px;padding:9px 18px;background:linear-gradient(90deg,#160e04,#2a1905,#160e04);border-bottom:1px solid #5a3a15;color:#ddd;text-align:center}
+.nh-reward-banner .gift{color:#ffad42;font-size:12px;font-weight:900;letter-spacing:1.4px;text-transform:uppercase}
+.nh-reward-banner .copy{color:#eee;font-size:13px;font-weight:700}
+.nh-reward-banner strong{color:#ff9d22}
+.nh-reward-banner a{display:inline-flex;align-items:center;padding:5px 10px;border-radius:7px;background:#ff8c00;color:#111;font-size:11px;font-weight:900;white-space:nowrap;transition:.18s ease}
+.nh-reward-banner a:hover{background:#ffad42;transform:translateY(-1px)}
+.nh-page-main{min-height:calc(100vh - 100px)}
+.nh-page-main>section:first-child{padding-top:88px}
+@media(max-width:900px){.nh-nav-inner{gap:12px}.nh-brand span{display:none}.nh-main-logo{width:165px;max-height:50px}.nh-nav-links{justify-content:flex-start}.nh-reward-banner{gap:8px;flex-wrap:wrap;padding:8px 12px}.nh-reward-banner .copy{font-size:12px}.nh-reward-banner a{font-size:10px}}
+@media(max-width:600px){.nh-site-nav{padding:9px 10px}.nh-brand-mark{width:32px;height:32px}.nh-nav-links a{padding:8px 9px;font-size:11px}.nh-reward-banner .gift{font-size:10px;letter-spacing:1px}.nh-reward-banner .copy{font-size:11px}}
+</style>
+<style>.nh-site-nav{position:sticky;top:0;z-index:1000;background:rgba(8,8,9,.97);backdrop-filter:blur(14px);border-bottom:1px solid #2b2b2e;box-shadow:0 8px 30px rgba(0,0,0,.22)}.nh-nav-inner{width:min(1500px,100%);margin:auto;display:flex;align-items:center;gap:22px;padding:10px 22px;min-width:0}.nh-brand{display:flex;align-items:center;flex:0 0 auto}.nh-main-logo{display:block;width:185px;height:auto;max-height:58px;object-fit:contain}.nh-nav-links{display:flex;align-items:center;justify-content:flex-end;gap:4px;flex:1;min-width:0;overflow:visible}.nh-nav-links>a,.nh-nav-more>button{white-space:nowrap;padding:9px 10px;border:0;border-radius:8px;background:transparent;color:#9c9c9f;font:900 11px/1 Arial,Helvetica,sans-serif;letter-spacing:.25px;text-decoration:none;cursor:pointer;transition:color .18s ease,background .18s ease,transform .18s ease}.nh-nav-links>a:hover,.nh-nav-more>button:hover{color:#fff;background:#18181b;transform:translateY(-1px)}.nh-nav-links>a.active,.nh-nav-more>button.active{color:#ffad42;background:rgba(255,140,0,.10);box-shadow:inset 0 0 0 1px rgba(255,140,0,.18)}.nh-nav-more{position:relative;display:flex;align-items:center}.nh-nav-more>button{display:inline-flex;align-items:center;gap:7px}.nh-nav-more>button::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .18s ease}.nh-nav-more.open>button::after{transform:rotate(225deg) translate(-1px,-1px)}.nh-nav-dropdown{position:absolute;right:0;top:calc(100% + 10px);min-width:190px;padding:7px;background:rgba(13,13,15,.98);border:1px solid #333338;border-radius:12px;box-shadow:0 20px 55px rgba(0,0,0,.45);display:none}.nh-nav-more.open .nh-nav-dropdown{display:block}.nh-nav-dropdown a{display:block;padding:10px 11px;border-radius:8px;color:#aaa;font:800 11px/1.2 Arial,Helvetica,sans-serif;text-decoration:none}.nh-nav-dropdown a:hover{background:#1b1b1f;color:#fff}.nh-nav-dropdown a.active{color:#ffad42;background:rgba(255,140,0,.10)}@media(max-width:1120px){.nh-nav-inner{gap:12px;padding:9px 14px}.nh-main-logo{width:160px}.nh-nav-links>a,.nh-nav-more>button{padding:8px 7px;font-size:10px}}@media(max-width:850px){.nh-nav-inner{align-items:flex-start}.nh-main-logo{width:145px}.nh-nav-links{justify-content:flex-start;overflow-x:auto;scrollbar-width:none;padding-bottom:1px}.nh-nav-links::-webkit-scrollbar{display:none}.nh-nav-links>a,.nh-nav-more>button{font-size:10px;padding:8px}.nh-nav-dropdown{position:fixed;right:12px;top:61px}}@media(max-width:600px){.nh-main-logo{width:132px}.nh-nav-inner{gap:8px;padding:8px 10px}.nh-nav-links>a,.nh-nav-more>button{font-size:9px;padding:8px 7px}}</style><style id="nh-basket-styles">
+.nh-basket-wrap{position:relative;display:flex;align-items:center;flex:0 0 auto}
+.nh-basket-button{white-space:nowrap;padding:9px 10px;border:1px solid #343438;border-radius:9px;background:#111114;color:#ddd;font:900 11px/1 Arial,Helvetica,sans-serif;letter-spacing:.25px;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:color .18s ease,background .18s ease,border-color .18s ease,transform .18s ease}
+.nh-basket-button:hover,.nh-basket-wrap.open .nh-basket-button{color:#fff;background:#18181b;border-color:#5a3b18;transform:translateY(-1px)}
+.nh-basket-icon{font-size:12px;line-height:1}
+.nh-basket-count{min-width:18px;height:18px;padding:0 5px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;background:#ff8c00;color:#111;font-size:9px;font-weight:900}
+.nh-basket-dropdown{position:absolute;right:0;top:calc(100% + 10px);width:330px;padding:15px;background:rgba(13,13,15,.99);border:1px solid #39393e;border-radius:16px;box-shadow:0 24px 65px rgba(0,0,0,.52);display:none}
+.nh-basket-wrap.open .nh-basket-dropdown{display:block}
+.nh-basket-heading{display:flex;justify-content:space-between;align-items:center;padding:3px 3px 12px;border-bottom:1px solid #29292d;color:#fff;font-size:13px;font-weight:900}
+.nh-basket-status{color:#777;font-size:10px;font-weight:800;letter-spacing:.7px;text-transform:uppercase}
+.nh-basket-empty{text-align:center;padding:25px 14px 20px}
+.nh-basket-empty-icon{width:48px;height:48px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,140,0,.09);border:1px solid #4c3419;font-size:19px}
+.nh-basket-empty strong{display:block;color:#fff;font-size:15px;margin-bottom:5px}
+.nh-basket-empty p{margin:0 auto;color:#85858a;font-size:11px;line-height:1.55;max-width:250px}
+.nh-basket-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:12px;border-top:1px solid #29292d}
+.nh-basket-actions a{display:flex;align-items:center;justify-content:center;min-height:38px;border-radius:8px;font:900 10px/1 Arial,Helvetica,sans-serif;letter-spacing:.5px;text-decoration:none}
+.nh-basket-secondary{background:#19191d;border:1px solid #34343a;color:#ddd}
+.nh-basket-secondary:hover{background:#222227;color:#fff}
+.nh-basket-primary{background:#ff8c00;color:#111}
+.nh-basket-primary:hover{background:#ffad42}
+@media(max-width:1120px){.nh-basket-button{padding:8px 7px;font-size:10px}.nh-basket-dropdown{width:310px}}
+@media(max-width:850px){.nh-basket-wrap{position:static}.nh-basket-dropdown{position:fixed;right:12px;top:61px;width:min(330px,calc(100vw - 24px))}}
+@media(max-width:600px){.nh-basket-button{font-size:9px;padding:8px 7px}.nh-basket-count{min-width:16px;height:16px;font-size:8px}}
+</style>
+</head>
+<body>
+<nav class="nh-site-nav" aria-label="NovaHills main navigation"><div class="nh-nav-inner"><a class="nh-brand" href="index.html" aria-label="NovaHills City Home"><img class="nh-main-logo" src="NovaHills_Main_Logo.svg" alt="NovaHills City"></a><div class="nh-nav-links"><a data-nav="index.html" href="index.html">Home</a><a data-nav="launcher.html" href="launcher.html">Downloads</a><a data-nav="server.html" href="server.html">Server</a><a data-nav="city-event.html" href="city-event.html">City Event</a><a data-nav="commands.html" href="commands.html">Commands</a><a data-nav="shop.html" href="shop.html">Shop</a><a data-nav="account.html" href="account.html">Account</a><div class="nh-basket-wrap"><button class="nh-basket-button" type="button" aria-haspopup="true" aria-expanded="false"><span class="nh-basket-icon">🛒</span><span>Basket</span><span class="nh-basket-count">0</span></button><div class="nh-basket-dropdown" role="dialog" aria-label="Shopping basket"><div class="nh-basket-heading"><span>Your Basket</span><span class="nh-basket-status">0 items</span></div><div class="nh-basket-empty"><div class="nh-basket-empty-icon">🛒</div><strong>Your basket is empty</strong><p>Products and checkout will become available as the NovaHills shop develops.</p></div><div class="nh-basket-actions"><a class="nh-basket-secondary" href="basket.html">View Basket</a><a class="nh-basket-primary" href="checkout.html">Checkout</a></div></div></div><div class="nh-nav-more"><button type="button" aria-haspopup="true" aria-expanded="false">More</button><div class="nh-nav-dropdown" role="menu"><a data-nav="security.html" href="security.html">Security</a><a data-nav="requirements.html" href="requirements.html">Requirements</a><a data-nav="contact.html" href="contact.html">Contact</a><a data-nav="about.html" href="about.html">About</a><a data-nav="privacy.html" href="privacy.html">Privacy Policy</a></div></div></div></div></nav>
+<div class="nh-reward-banner"><span class="gift">🎁 CITY EVENT REWARDS</span><span class="copy"><strong>Real One4all Digital Gift Card rewards</strong> are available throughout the NovaHills City event — up to <strong>£4,005 total</strong>.</span><a href="city-event.html">VIEW REWARDS</a></div>
+<main class="nh-page-main">
+<section id="event"><div class="container">
+<div class="event-hero">
+<div class="eyebrow">The official NovaHills City pre-launch event</div>
+<h2>Build the city. Build the future.</h2>
+<p>45 days. 125 Capital plots. 100 Core Builders. 25 Housebuilders. 25 City Support Builders. The city is built by the players themselves and then becomes the permanent NovaHills City.</p>
+</div>
+<div class="reward-banner">
+<h3>🎁 Players can earn real Gift Card rewards</h3>
+<p><strong>One4all Digital Gift Cards</strong> are used for the event's real-money rewards. Builder completion, Housebuilder, City Support Builder, TikTok and Build Contest rewards all pay out as Gift Cards. The separate Creator Finale is also part of the reward programme.</p>
+<div class="reward-grid">
+<div class="reward-card"><span>Core Builders</span><strong>£5–£20</strong><small>per city plot</small></div>
+<div class="reward-card"><span>Housebuilders</span><strong>£5</strong><small>each</small></div>
+<div class="reward-card"><span>City Support Builders</span><strong>£20</strong><small>each</small></div>
+<div class="reward-card"><span>TikTok Competition</span><strong>£750</strong><small>£350 / £250 / £150</small></div>
+<div class="reward-card"><span>Build Contest</span><strong>£350</strong><small>£200 / £100 / £50</small></div>
+<div class="reward-card featured"><span>Maximum Event Rewards</span><strong>£4,005</strong><small>including the £900 Creator Finale</small></div>
+</div></div>
+<div class="event-note"><strong>Important:</strong> The Government and Bank are <strong>designated capital facilities that players build during the event</strong>. They are not pre-built. Player buildings are created by the selected builders during the event.</div>
+<div class="map-gallery">
+<div class="map-card"><img alt="NovaHills City 125 plot top-down map" src="maps/NovaHills_125_Plot_Top_Down_Map.png"><h3>Capital Plot Map — Top Down</h3><p>125-plot Capital layout with the designated Government and Bank facilities and no player buildings.</p></img></div>
+<div class="map-card"><img alt="NovaHills City 125 plot 3D map" src="maps/NovaHills_125_Plot_3D_Map.png"/><h3>Capital Plot Map — 3D</h3><p>3D/isometric view of the same Capital development layout.</p></div>
+</div>
+<div class="announcement"><h2>🏙️ NOVAHILLS CITY — THE OFFICIAL PRE-LAUNCH EVENT</h2>
+<h3>🎉 THE OFFICIAL NOVAHILLS CITY PRE-LAUNCH EVENT</h3>
+<p>Welcome to NovaHills City — a brand-new Minecraft Java Edition 26.2 Creative-to-Survival event where the players build the city themselves.</p>
+<p>This is not a pre-built city. The event is about taking an empty, planned capital area and turning it into the permanent NovaHills City through the work of the community.</p>
+<p>Game: Minecraft Java Edition 26.2 Event: Creative → Survival Capital: NovaHills City Capital plots: 125 total Core Builders: 100 Housebuilders: 25 City Support Builders: 25 Support Builders are support roles, not additional plots.</p>
+<p>The City World is a controlled development world. Players can only build on their allocated plots, plots they purchase from other players, plots they purchase to add to the Capital, or purchased Village Plots, Town Plots, or City Plots.</p>
+<p>Resources are gathered in the separate Survival World, accessed through the Survival World portal at the server main spawn, or through a Survival World portal that may be added inside the City World. A server plugin is planned to allow players to easily transfer their resources from the Survival World to their storage in the City World.</p>
+<hr/>
+<h2>🏗️ HOW THE EVENT WORKS</h2>
+<p>The event begins in Creative so builders can construct the planned capital safely and efficiently.</p>
+<p>The city is then transitioned into Survival, becoming the permanent NovaHills City.</p>
+<h4>The capital build area</h4>
+<ul><li>The capital contains 125 development plots.</li><li>100 plots are assigned to Core Builders.</li><li>25 plots are Housebuilder plots.</li><li>City Support Builders do not receive additional plots.</li><li>Roads and the city layout are prepared.</li><li>The intended capital build area is flat and build-ready.</li><li>There is no random water inside the intended city build area.</li><li>The City World is a controlled development world; it is not a normal Minecraft survival world.</li><li>Players can only build on their allocated plots, plots they purchase from other players, plots they purchase to add to the Capital, or purchased Village Plots, Town Plots, or City Plots.</li><li>Resources are gathered in the separate Survival World through the Survival World portal at the server main spawn, or a Survival World portal that may be added inside the City World.</li><li>A server plugin is planned to allow easy transfer of resources from the Survival World to storage in the City World.</li><li>Player buildings are built by the players during the event.</li><li>The Government and Bank are the designated capital facilities, and players will build them during the event.</li><li>Commands remain available; the world is not locked to Survival during the build event.</li></ul>
+<hr/>
+<h2>🗺️ CAPITAL PLOT ALLOCATION — 125 TOTAL</h2>
+<div class="table-wrap"><table><thead><tr><th>Plot type</th><th>Number</th></tr></thead><tbody><tr><td>🏠 House plots</td><td>25</td></tr><tr><td>🏛️ Government / Civic</td><td>6</td></tr><tr><td>🏦 Bank / Finance</td><td>4</td></tr><tr><td>🏙️ Residential High-Rise</td><td>8</td></tr><tr><td>🏢 Major Office Skyscraper</td><td>8</td></tr><tr><td>🏙️ Major Commercial Skyscraper</td><td>8</td></tr><tr><td>🏢 Large Office / Commercial</td><td>8</td></tr><tr><td>🏙️ Large Apartments</td><td>10</td></tr><tr><td>🏢 Standard / Small Apartments</td><td>12</td></tr><tr><td>🛍️ Commercial / Retail</td><td>8</td></tr><tr><td>🏭 Industrial / Factory</td><td>7</td></tr><tr><td>🚉 Transport / Utilities</td><td>6</td></tr><tr><td>🏥 Community / City Services</td><td>5</td></tr><tr><td>🌳 Parks / Recreation</td><td>5</td></tr><tr><td>🏗️ Mixed-Use / Future Development</td><td>5</td></tr><tr><td>TOTAL</td><td>125</td></tr></tbody></table></div>
+<p>The 100 non-house plots form the Core Builder allocation.</p>
+<hr/>
+<h2>👷 BUILDER NUMBERS</h2>
+<div class="table-wrap"><table><thead><tr><th>Builder type</th><th>Number</th><th>Reward</th></tr></thead><tbody><tr><td>Core Builders</td><td>100</td><td>£5–£20 depending on city plot</td></tr><tr><td>Housebuilders</td><td>25</td><td>£5 each</td></tr><tr><td>City Support Builders</td><td>25</td><td>£20 each</td></tr><tr><td>Total event builders</td><td>150</td><td>—</td></tr></tbody></table></div>
+<hr/>
+<h2>💷 CORE BUILDER REWARD ALLOCATION</h2>
+<div class="table-wrap"><table><thead><tr><th>Core Builder category</th><th>Plots / Builders</th><th>Reward each</th><th>Total reward</th></tr></thead><tbody><tr><td>🏛️ Government / Civic</td><td>6</td><td>£20</td><td>£120</td></tr><tr><td>🏦 Bank / Finance</td><td>4</td><td>£20</td><td>£80</td></tr><tr><td>🏙️ Residential High-Rise</td><td>8</td><td>£20</td><td>£160</td></tr><tr><td>🏢 Major Office Skyscraper</td><td>8</td><td>£20</td><td>£160</td></tr><tr><td>🏙️ Major Commercial Skyscraper</td><td>8</td><td>£20</td><td>£160</td></tr><tr><td>🏢 Large Office / Commercial</td><td>8</td><td>£15</td><td>£120</td></tr><tr><td>🏙️ Large Apartments</td><td>10</td><td>£15</td><td>£150</td></tr><tr><td>🏢 Standard / Small Apartments</td><td>12</td><td>£10</td><td>£120</td></tr><tr><td>🛍️ Commercial / Retail</td><td>8</td><td>£10</td><td>£80</td></tr><tr><td>🏭 Industrial / Factory</td><td>7</td><td>£10</td><td>£70</td></tr><tr><td>🚉 Transport / Utilities</td><td>6</td><td>£10</td><td>£60</td></tr><tr><td>🏥 Community / City Services</td><td>5</td><td>£10</td><td>£50</td></tr><tr><td>🌳 Parks / Recreation</td><td>5</td><td>£5</td><td>£25</td></tr><tr><td>🏗️ Mixed-Use / Future Development</td><td>5</td><td>£5</td><td>£25</td></tr><tr><td>TOTAL CORE BUILDERS</td><td>100</td><td>—</td><td>£1,380</td></tr></tbody></table></div>
+<hr/>
+<h2>🏆 EVENT COMPETITION REWARDS</h2>
+<h3>TikTok Competition</h3>
+<p>🥇 1st — £350 🥈 2nd — £250 🥉 3rd — £150</p>
+<h3>Build Contest</h3>
+<p>🥇 1st — £200 🥈 2nd — £100 🥉 3rd — £50</p>
+<p>Important: A top-three TikTok winner cannot also receive a Build Contest prize.</p>
+<h3>City Support Builders</h3>
+<p>25 City Support Builders — £20 each</p>
+<h3>Creator Finale</h3>
+<p>£900 — separate from the main event reward budget.</p>
+<h4>Reward totals</h4>
+<ul><li>Core Builders: £1,380</li><li>Housebuilders: £125</li><li>City Support Builders: £500</li><li>TikTok: £750</li><li>Build Contest: £350</li><li>Main event total: £3,105</li><li>Creator Finale: £900</li><li>Maximum total: £4,005</li></ul>
+<p>All real-money event rewards are paid as One4all Digital Gift Cards.</p>
+<hr/>
+<h2>👤 PLAYER TYPES, PLOTS, LOANS &amp; REWARDS</h2>
+<div class="table-wrap"><table><thead><tr><th>Player type</th><th>Keeps capital event plot?</th><th>Settlement</th><th>Eligible for upgrade?</th><th>Plot cost</th><th>Loan</th><th>End-of-event reward</th><th>Gift Card Reward</th></tr></thead><tbody><tr><td>Government builder</td><td>❌ No</td><td>City Plot</td><td>N/A</td><td>N/A</td><td>~$750k</td><td>$225,000</td><td>£20</td></tr><tr><td>Bank builder</td><td>❌ No</td><td>Town Plot</td><td>Yes — 50% off</td><td>N/A</td><td>~$750k</td><td>$225,000</td><td>£20</td></tr><tr><td>Major server facility builder</td><td>⚠️ No physical capital plot; potentially receives 50% of business profits depending on type of plot</td><td>Village Plot</td><td>Yes — 50% off if not receiving profits; full price if receiving profits</td><td>N/A</td><td>~$750k</td><td>$225,000 if not receiving profits; $135,000 if receiving profits</td><td>£20</td></tr><tr><td>Main Shopping Center Builder</td><td>⚠️ No physical capital plot; receives 50% of net profits after operating expenses, taxes, and maintenance costs</td><td>Village Plot</td><td>Yes — full price</td><td>N/A</td><td>~$300k</td><td>$135,000</td><td>£15</td></tr><tr><td>Other founding builder</td><td>✅ Yes</td><td>Village Plot</td><td>Yes — full price</td><td>N/A</td><td>~$300k</td><td>$135,000–$315,000 depending on plot type</td><td>£5 - £20 depending on plot type</td></tr><tr><td>City Support Builder</td><td>N/A</td><td>Village Plot</td><td>Yes — 50% off</td><td>N/A</td><td>~$300k</td><td>$135,000</td><td>£20</td></tr><tr><td>Normal player</td><td>⚠️ No physical capital plot; keeps their allocated House Plot or can purchase a house/apartment within the capital</td><td>House Plot within Capital</td><td>Village → Town: $300k; Town → City: $500k</td><td>Village Plot — $200k; Town Plot — $500k; City Plot — $1M</td><td>Based on plot purchase</td><td>N/A</td><td>£5</td></tr></tbody></table></div>
+<hr/>
+<h2>🏛️ FOUNDING BUILDER RULES</h2>
+<h4>Government Builder</h4>
+<ul><li>Builds the government building in the capital during the event.</li><li>Does not keep the capital event plot.</li><li>The capital keeps the government building and plot.</li><li>Receives an automatic City Plot.</li><li>Receives approximately $750,000 loan.</li><li>Upgrade eligibility: N/A.</li><li>In-game reward: $225,000.</li><li>Event Gift Card reward: £20.</li></ul>
+<h4>Bank Builder</h4>
+<ul><li>Builds the bank in the capital during the event.</li><li>Does not keep the capital event plot.</li><li>Receives an automatic Town Plot.</li><li>Receives approximately $750,000 loan.</li><li>Upgrades are 50% off.</li><li>In-game reward: $225,000.</li><li>Event Gift Card reward: £20.</li></ul>
+<h4>Major Server Facility Builder</h4>
+<ul><li>Builds the major server facility in the capital.</li><li>Does not keep the physical capital event plot.</li><li>May receive 50% of business profits depending on the type of plot.</li><li>Receives an automatic Village Plot.</li><li>Receives approximately $750,000 loan.</li><li>Upgrade eligibility is 50% off if not receiving profits; full price if receiving profits.</li><li>In-game reward is $225,000 if not receiving profits; $135,000 if receiving profits.</li><li>Profit share is calculated from net profits after operating expenses, taxes and maintenance costs.</li></ul>
+<h4>Main Shopping Center Builder</h4>
+<ul><li>Builds the main shopping center in the capital.</li><li>Does not keep the physical capital event plot.</li><li>Receives 50% of business profits.</li><li>Receives an automatic Village Plot.</li><li>Receives approximately $300,000 loan.</li><li>Upgrades are full price.</li><li>In-game reward: $135,000.</li><li>Profit share is calculated from net profits after operating expenses, taxes and maintenance costs.</li></ul>
+<h4>Other Founding Builder</h4>
+<ul><li>The capital event building remains their property.</li><li>Keeps the capital event plot.</li><li>Receives an automatic Village Plot.</li><li>Receives approximately $300,000 loan.</li><li>Loan is repaid through taxes.</li><li>Upgrades are full price.</li><li>In-game reward: $135,000–$315,000 depending on plot type.</li><li>Event Gift Card reward: £5–£20 depending on plot type.</li></ul>
+<hr/>
+<h2>🛠️ CITY SUPPORT BUILDERS</h2>
+<p>There are 25 City Support Builders.</p>
+<p>Support Builders are support roles and do not create additional Capital plots.</p>
+<p>They receive:</p>
+<p>£20 Gift Card reward each.</p>
+<hr/>
+<h2>🏠 HOUSING RULES</h2>
+<div class="table-wrap"><table><thead><tr><th>Housing type</th><th>Minimum units</th><th>Unit requirements</th><th>Occupancy</th></tr></thead><tbody><tr><td>House</td><td>1</td><td>—</td><td>No minimum; 4 people maximum</td></tr><tr><td>Standard Apartment</td><td>20</td><td>1 bedroom</td><td>No minimum; 2 people maximum</td></tr><tr><td>Large Apartment</td><td>35</td><td>50% 1-bedroom; 50% 2-bedroom</td><td>1-bedroom: no minimum; 2 max / 2-bedroom: 2 minimum; 4 max</td></tr><tr><td>High-Rise Apartment</td><td>50</td><td>25% 1-bedroom; 25% 2-bedroom; 25% 3-bedroom; 25% 4-bedroom</td><td>1-bedroom: no minimum; 2-bedroom: 2–4 / 3-bedroom: 3–6 / 4-bedroom: 4–8</td></tr></tbody></table></div>
+<h4>Capital Housing Capacity</h4>
+<div class="table-wrap"><table><thead><tr><th>Housing type</th><th>Number</th><th>Maximum capacity per building</th><th>Maximum residents</th></tr></thead><tbody><tr><td>Houses</td><td>25</td><td>4</td><td>100</td></tr><tr><td>Standard Apartments</td><td>15</td><td>20 apartments × 2</td><td>600</td></tr><tr><td>Large Apartments</td><td>10</td><td>104</td><td>1,040</td></tr><tr><td>High-Rise Apartments</td><td>5</td><td>246</td><td>1,230</td></tr><tr><td>TOTAL</td><td>55</td><td>—</td><td>2,970</td></tr></tbody></table></div>
+<h4>Large Apartment — 35 Units</h4>
+<div class="table-wrap"><table><thead><tr><th>Unit type</th><th>Number</th><th>Minimum residents</th><th>Maximum residents</th></tr></thead><tbody><tr><td>1-bedroom</td><td>18</td><td>No minimum</td><td>2</td></tr><tr><td>2-bedroom</td><td>17</td><td>2</td><td>4</td></tr><tr><td>TOTAL</td><td>35</td><td>34 minimum</td><td>104 maximum</td></tr></tbody></table></div>
+<h4>High-Rise Apartment — 50 Units</h4>
+<div class="table-wrap"><table><thead><tr><th>Unit type</th><th>Number</th><th>Minimum residents</th><th>Maximum residents</th></tr></thead><tbody><tr><td>1-bedroom</td><td>13</td><td>No minimum</td><td>2</td></tr><tr><td>2-bedroom</td><td>13</td><td>2</td><td>4</td></tr><tr><td>3-bedroom</td><td>12</td><td>3</td><td>6</td></tr><tr><td>4-bedroom</td><td>12</td><td>4</td><td>8</td></tr><tr><td>TOTAL</td><td>50</td><td>110 minimum</td><td>246 maximum</td></tr></tbody></table></div>
+<p>When Capital housing reaches capacity, new players can establish themselves elsewhere in the wider NovaHills region.</p>
+<p>Capital expansion can happen later, but it is not automatic.</p>
+<hr/>
+<h2>💰 NOVAHILLS ECONOMY &amp; SETTLEMENT SYSTEM</h2>
+<p>Founding builders are intended to start with a meaningful financial advantage because they helped create the permanent capital.</p>
+<p>Normal players can progress through the wider NovaHills economy and eventually purchase their own plots and develop towns and cities.</p>
+<h4>Normal plot prices</h4>
+<div class="table-wrap"><table><thead><tr><th>Plot</th><th>Cost</th></tr></thead><tbody><tr><td>Village Plot</td><td>$200,000</td></tr><tr><td>Town Plot</td><td>$500,000</td></tr><tr><td>City Plot</td><td>$1,000,000</td></tr></tbody></table></div>
+<h4>Upgrades</h4>
+<ul><li>Village → Town: $300,000</li><li>Town → City: $500,000</li></ul>
+<p>City development loans are a revolving development credit facility, rather than a single one-time loan.</p>
+<p>A city can request additional development credit when it needs more funding, subject to its current credit limit.</p>
+<p>Credit limits can be affected by:</p>
+<ul><li>Repayment history</li><li>City revenue</li><li>Population</li><li>Business activity</li><li>Overall development success</li></ul>
+<p>Loans continue accumulating during real-world time, including when players are offline.</p>
+<p>The standard cycle is:</p>
+<p>1 real-world month = 30 real-world days.</p>
+<hr/>
+<h2>🏦 BUSINESS PROFIT SHARING</h2>
+<p>Where a founding builder receives a percentage of business profits, the calculation is based on:</p>
+<p>Gross Revenue − Operating Expenses − Taxes − Maintenance Costs = Net Profit</p>
+<p>The builder receives 50% of Net Profit, with NovaHills receiving the remaining 50%.</p>
+<hr/>
+<h2>🏘️ NORMAL PLAYER PROGRESSION</h2>
+<p>A normal player who did not participate in the founding event does not receive a founding-event capital plot.</p>
+<p>They can:</p>
+<ul><li>Use their allocated House Plot within Capital.</li><li>Purchase a house or apartment within Capital.</li><li>Progress through Village, Town and City development.</li><li>Earn money through the NovaHills economy.</li><li>Build businesses.</li><li>Establish and develop settlements elsewhere in the wider NovaHills region.</li></ul>
+<p>The purpose is to allow the Capital to remain a finite, prestigious city while giving players a long-term route toward creating their own towns and cities.</p>
+<hr/>
+<h2>🧱 BUILDING RULES</h2>
+<h4>No Copying</h4>
+<p>Builders must create their own work.</p>
+<p>Copying another builder's building, copying tutorials directly, or using another person's build as their own is not allowed.</p>
+<p>Architectural inspiration is allowed, but builders are expected to create original work.</p>
+<h4>Plot Protection</h4>
+<p>Individual builder plots are protected using WorldGuard / WorldEdit.</p>
+<p>Builders must build within their assigned area.</p>
+<h4>Plot Communication</h4>
+<p>Builder communication and plot-related information will be handled through the designated event communication channels.</p>
+<h4>Build Quality</h4>
+<p>Builds are reviewed during the event.</p>
+<p>Staff may review:</p>
+<ul><li>Build quality</li><li>Completion</li><li>Plot compliance</li><li>Rule compliance</li><li>Originality</li><li>Overall suitability for the permanent city</li></ul>
+<hr/>
+<h2>🛡️ ANTI-SWEEP PROTECTION</h2>
+<p>The event includes Anti-Sweep protection.</p>
+<p>The purpose is to prevent builders from taking over or interfering with another builder's assigned work.</p>
+<p>Your assigned plot is your responsibility.</p>
+<p>Do not build over, modify, grief or interfere with another builder's plot.</p>
+<hr/>
+<h2>📅 DAY 23 — 50% AUDIT</h2>
+<p>On Day 23, a 50% progress audit takes place.</p>
+<p>Builders should have a substantial amount of their assigned work completed by this point.</p>
+<p>The audit is used to identify:</p>
+<ul><li>Builders who are progressing normally</li><li>Builders who need help</li><li>Builders who are substantially behind</li><li>Plots requiring staff attention</li></ul>
+<p>The audit is not intended to punish builders who are genuinely progressing.</p>
+<hr/>
+<h2>⚡ EARLY COMPLETION</h2>
+<p>Builders who finish their assigned work early may be given additional roles or opportunities to help with the wider event.</p>
+<p>Early completion does not automatically give a builder another permanent Capital plot.</p>
+<hr/>
+<h2>👥 HELPER RULES</h2>
+<p>Helpers can assist where permitted, but builders remain responsible for their assigned plot.</p>
+<p>Helpers cannot be used to bypass builder selection or plot allocation rules.</p>
+<hr/>
+<h2>🔒 COMMUNICATION &amp; PRIVACY</h2>
+<p>Official event information will be communicated through the designated NovaHills channels.</p>
+<p>Builders should use the official channels for event-related information.</p>
+<p>Personal information should not be shared publicly.</p>
+<p>Staff decisions and event communications should remain within the appropriate official channels where required.</p>
+<hr/>
+<h2>🏷️ PERMANENT BUILDING CREDITS</h2>
+<p>Builders who create permanent Capital buildings will receive permanent building credit.</p>
+<p>The finished city will retain recognition of the people who contributed to its construction.</p>
+<p>Builder credits may form part of the final city showcase and historical records.</p>
+<hr/>
+<h2>🏛️ FOUNDING BUILDER STATUS</h2>
+<p>Players who participate as founding builders become part of the founding history of NovaHills City.</p>
+<p>Founding Builder recognition is connected to their contribution to the creation of the permanent city.</p>
+<p>This recognition remains even after the event transitions into Survival.</p>
+<hr/>
+<h2>🪦 NOVAHILLS BUILDERS MEMORIAL</h2>
+<p>The event includes a permanent NovaHills Builders Memorial.</p>
+<p>The Memorial recognises the builders who helped create the Capital.</p>
+<p>The Memorial period takes place during:</p>
+<p>Days 38–44 — NovaHills Builders Memorial Week</p>
+<p>The Memorial opens as part of the Day 45 public launch.</p>
+<p>Builder names and permanent building credits can be included in the finished city's history.</p>
+<hr/>
+<h2>🔄 REDEVELOPMENT</h2>
+<p>Capital plots are permanent city assets.</p>
+<p>Future redevelopment must follow NovaHills City rules.</p>
+<p>Existing builder credits should be preserved when buildings are redeveloped or replaced.</p>
+<hr/>
+<h2>🎨 ARCHITECTURAL INSPIRATION</h2>
+<p>Builders are encouraged to use real-world architecture, city planning and architectural styles as inspiration.</p>
+<p>The goal is to create a believable, varied and professional city.</p>
+<p>However, builders must create their own original work rather than directly copying another person's building or tutorial.</p>
+<hr/>
+<h2>📱 TIKTOK COMPETITION</h2>
+<p>Builders and community members can participate in the TikTok competition.</p>
+<h4>Prizes</h4>
+<p>🥇 £350 🥈 £250 🥉 £150</p>
+<p>The competition is separate from the individual plot completion rewards.</p>
+<p>A top-three TikTok winner cannot also receive a Build Contest prize.</p>
+<hr/>
+<h2>🏆 BUILD CONTEST</h2>
+<p>The Build Contest rewards exceptional building work.</p>
+<h4>Prizes</h4>
+<p>🥇 £200 🥈 £100 🥉 £50</p>
+<p>The Build Contest is separate from the individual plot completion reward.</p>
+<hr/>
+<h2>🎁 ONE4ALL DIGITAL GIFT CARDS</h2>
+<p>Real-money event rewards are paid using One4all Digital Gift Cards.</p>
+<p>The event rewards include:</p>
+<ul><li>Core Builder completion rewards</li><li>Housebuilder completion rewards</li><li>City Support Builder rewards</li><li>TikTok competition prizes</li><li>Build Contest prizes</li><li>Separate Creator Finale</li></ul>
+<hr/>
+<h2>📆 THE 45-DAY EVENT SCHEDULE</h2>
+<h3>DAYS 1–30 — CONSTRUCTION</h3>
+<p>The Capital is built by the selected builders.</p>
+<p>Builders work on their assigned plots.</p>
+<p>Roads, plot protection, staff monitoring and event support remain active.</p>
+<hr/>
+<h3>DAYS 31–37 — STAFF REVIEW, AUDITING &amp; FINALISATION</h3>
+<p>Staff review the completed Capital.</p>
+<p>This includes:</p>
+<ul><li>Plot completion</li><li>Build quality</li><li>Rule compliance</li><li>Builder credits</li><li>Final event records</li><li>Reward verification</li><li>Finalisation of the permanent city</li></ul>
+<hr/>
+<h3>DAYS 38–44 — NOVAHILLS BUILDERS MEMORIAL WEEK</h3>
+<p>The Builders Memorial period takes place.</p>
+<p>The event celebrates the builders who created the Capital and prepares the city for its public opening.</p>
+<hr/>
+<h3>DAY 45 — THE REVEAL</h3>
+<p>Day 45 is the official transition point.</p>
+<p>The event includes:</p>
+<ul><li>Final rewards and payouts</li><li>Full city reveal</li><li>Builders Memorial opening</li><li>Public launch</li><li>Transition into the permanent NovaHills City Survival world</li></ul>
+<hr/>
+<h2>🌎 AFTER THE EVENT</h2>
+<p>NovaHills City continues as a permanent Survival city.</p>
+<p>The buildings created during the Creative event remain part of the city.</p>
+<p>The City World remains a controlled development world. Players can only build on their allocated plots, plots they purchase from other players, plots they purchase to add to the Capital, or purchased Village Plots, Town Plots, or City Plots.</p>
+<p>Resources are gathered in the separate Survival World, accessed through the Survival World portal at the server main spawn, or through a Survival World portal that may be added inside the City World. A server plugin is planned to allow players to easily transfer their resources from the Survival World to their storage in the City World.</p>
+<p>Players can:</p>
+<ul><li>Live in the Capital</li><li>Buy houses and apartments</li><li>Run businesses</li><li>Earn money</li><li>Buy plots</li><li>Upgrade settlements</li><li>Create towns</li><li>Create cities</li><li>Trade</li><li>Build</li><li>Explore</li><li>Participate in the wider NovaHills economy</li></ul>
+<p>The Capital is only the beginning.</p>
+<hr/>
+<h2>💷 COMPLETE REWARD SUMMARY</h2>
+<div class="table-wrap"><table><thead><tr><th>Reward</th><th>Amount</th></tr></thead><tbody><tr><td>Core Builder rewards</td><td>£1,380</td></tr><tr><td>Housebuilders</td><td>£125</td></tr><tr><td>City Support Builders</td><td>£500</td></tr><tr><td>TikTok Competition</td><td>£750</td></tr><tr><td>Build Contest</td><td>£350</td></tr><tr><td>Main Event Total</td><td>£3,105</td></tr><tr><td>Creator Finale</td><td>£900</td></tr><tr><td>Maximum Total</td><td>£4,005</td></tr></tbody></table></div>
+<hr/>
+<h2>🌆 NOVAHILLS CITY</h2>
+<p>125 Capital plots. 100 Core Builders. 25 Housebuilders. 25 City Support Builders. 45 days. One permanent city.</p>
+<p>Create the city. Build the future. Survive what you created.</p>
+<h2>🏙️ WELCOME TO NOVAHILLS CITY.</h2></div>
+</div></section>
+</main>
+<footer>
+<h3>NOVAHILLS CITY</h3>
+<p>Cross-platform Minecraft multiplayer community.</p>
+<p>NovaHills City and NovaHills Launcher are independent projects and are not affiliated with, endorsed by, or sponsored by Microsoft or Mojang Studios.</p>
+<p>Minecraft is a trademark of Mojang Studios.</p>
+<p style="margin-top:20px">© 2026 NovaHills City</p>
+</footer>
+<script>
+/* NovaHills: keep the approved command dropdown unchanged and apply the same
+   single-header treatment to every other existing website table. */
+document.addEventListener('DOMContentLoaded', function () {
+    let index = 0;
+
+    /* Command sections: preserve the approved command-group implementation. */
+    document.querySelectorAll('.command-group').forEach(function (group) {
+        const header = group.querySelector('.command-group-header');
+        const content = group.querySelector('.command-table-wrap');
+        if (!header || !content) return;
+
+        header.setAttribute('role', 'button');
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('aria-expanded', 'false');
+
+        const id = 'nh-command-table-' + index++;
+        content.id = id;
+        content.setAttribute('aria-hidden', 'true');
+        header.setAttribute('aria-controls', id);
+
+        group.classList.add('is-collapsed');
+
+        function toggleCommandGroup() {
+            const open = header.getAttribute('aria-expanded') === 'true';
+            header.setAttribute('aria-expanded', String(!open));
+            content.setAttribute('aria-hidden', String(open));
+            group.classList.toggle('is-collapsed', open);
+        }
+
+        header.addEventListener('click', toggleCommandGroup);
+        header.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                toggleCommandGroup();
+            }
+        });
+    });
+
+    /* Every other existing table gets the same single-header dropdown style. */
+    document.querySelectorAll('.table-wrap').forEach(function (container) {
+        if (container.closest('.command-group')) return;
+        if (container.previousElementSibling &&
+            container.previousElementSibling.classList.contains('nh-table-dropdown-header')) {
+            return;
+        }
+
+        const table = container.querySelector('table');
+        if (!table) return;
+
+        const firstHeading = table.querySelector('thead th');
+        const title = firstHeading && firstHeading.textContent.trim()
+            ? firstHeading.textContent.trim()
+            : 'Table';
+
+        const header = document.createElement('div');
+        header.className = 'nh-table-dropdown-header';
+        header.setAttribute('role', 'button');
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('aria-expanded', 'false');
+
+        const safeTitle = title.replace(/&/g, '&amp;')
+                              .replace(/</g, '&lt;')
+                              .replace(/>/g, '&gt;')
+                              .replace(/"/g, '&quot;');
+
+        header.innerHTML = '<span class="nh-table-dropdown-header-label">' + safeTitle + '</span>';
+
+        const contentId = 'nh-table-dropdown-content-' + index++;
+        const content = document.createElement('div');
+        content.className = 'nh-table-dropdown-content is-closed';
+        content.id = contentId;
+        content.setAttribute('aria-hidden', 'true');
+        header.setAttribute('aria-controls', contentId);
+
+        container.parentNode.insertBefore(header, container);
+        container.parentNode.insertBefore(content, container);
+        content.appendChild(container);
+
+        function toggleTable() {
+            const open = header.getAttribute('aria-expanded') === 'true';
+            header.setAttribute('aria-expanded', String(!open));
+            content.classList.toggle('is-closed', open);
+            content.setAttribute('aria-hidden', String(open));
+        }
+
+        header.addEventListener('click', toggleTable);
+        header.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                toggleTable();
+            }
+        });
+    });
+});
+</script>
+<script>document.addEventListener('DOMContentLoaded',function(){const current=location.pathname.split('/').pop()||'index.html';document.querySelectorAll('[data-nav]').forEach(function(a){if(a.getAttribute('data-nav')===current){a.classList.add('active');a.setAttribute('aria-current','page');const m=a.closest('.nh-nav-more');if(m)m.querySelector('button').classList.add('active')}});document.querySelectorAll('.nh-nav-more').forEach(function(m){const b=m.querySelector('button');b.addEventListener('click',function(e){e.stopPropagation();const o=m.classList.toggle('open');b.setAttribute('aria-expanded',String(o))})});document.addEventListener('click',function(){document.querySelectorAll('.nh-nav-more.open').forEach(function(m){m.classList.remove('open');m.querySelector('button').setAttribute('aria-expanded','false')})})});</script><script id="nh-basket-script">document.addEventListener('DOMContentLoaded',function(){const basket=document.querySelector('.nh-basket-wrap');if(!basket)return;const button=basket.querySelector('.nh-basket-button');button.addEventListener('click',function(e){e.stopPropagation();const open=basket.classList.toggle('open');button.setAttribute('aria-expanded',String(open));});basket.querySelectorAll('.nh-basket-dropdown a').forEach(function(a){a.addEventListener('click',function(){basket.classList.remove('open');button.setAttribute('aria-expanded','false');});});document.addEventListener('click',function(){if(basket.classList.contains('open')){basket.classList.remove('open');button.setAttribute('aria-expanded','false');}});});</script>
+</body>
+</html>
